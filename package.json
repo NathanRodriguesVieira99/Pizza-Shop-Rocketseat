@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:test": "dotenv -e .env.e2e -- vite",
+    "dev:test:e2e": "dotenv -e .env.e2e -- vite",
+    "dev:test": "dotenv -e .env.test -- vite",
     "build": "tsc -b && vite build",
     "lint": "npx ultracite@latest lint",
     "format": "npx ultracite@latest format",
@@ -54,11 +55,17 @@
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
     "lint-staged": "^16.1.2",
+    "msw": "^2.10.4",
     "storybook": "^8.6.14",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "ultracite": "5.0.36",
     "vite": "^7.0.4",
     "vitest": "^3.2.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
