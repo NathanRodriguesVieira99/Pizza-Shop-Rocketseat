@@ -1,3 +1,6 @@
 {
-  "src/**/*.ts": ["npx ultracite format","pnpm test:staged"]
+  "src/**/*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+    "npx ultracite format",
+    "pnpm test:staged"
+  ]
 }
