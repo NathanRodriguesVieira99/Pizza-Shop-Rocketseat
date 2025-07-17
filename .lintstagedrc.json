@@ -1,6 +1,6 @@
 {
   "src/**/*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
-    "npx ultracite format",
-    "pnpm test:staged"
-  ]
+    "npx ultracite format"
+  ],
+  "src/**/*.{test,spec}.{js,jsx,ts,tsx}": ["pnpm test:unit"]
 }
