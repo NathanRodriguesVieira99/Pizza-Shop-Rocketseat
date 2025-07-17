@@ -7,10 +7,14 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  reporter: "html",
+  // reporter: "html",
   use: {
     baseURL: "http://localhost:5173",
-    trace: "on-first-retry",
+  },
+  webServer: {
+    command: "pnpm dev:test",
+    url: "http://localhost:5173",
+    reuseExistingServer: !process.env.CI,
   },
   projects: [
     {
@@ -48,9 +52,4 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
-  webServer: {
-    command: "pnpm dev:test",
-    url: "http://localhost:5173",
-    reuseExistingServer: !process.env.CI,
-  },
 });
