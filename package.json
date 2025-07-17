@@ -1,0 +1,44 @@
+{
+  "name": "pizza-shop-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "npx ultracite@latest lint",
+    "format": "npx ultracite@latest format",
+    "preview": "vite preview",
+     "test": "vitest run",
+  "test:watchAll": "vitest watch",
+  "test:watch": "vitest watch",
+  "test:staged": "vitest run --changed",
+  "test:push": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage --no-file-parallelism",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.0.14",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "lint-staged": "^16.1.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "ultracite": "5.0.36",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4"
+  }
+}

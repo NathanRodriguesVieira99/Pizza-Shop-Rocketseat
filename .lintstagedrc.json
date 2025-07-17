@@ -1,0 +1,3 @@
+{
+  "src/**/*.ts": ["npx ultracite format","pnpm test:staged"]
+}
