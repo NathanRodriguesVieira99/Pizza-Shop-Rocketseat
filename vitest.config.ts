@@ -59,15 +59,10 @@ export default defineConfig({
 
         // Ignora arquivos e pastas de mocks e utilitários de testes
         "**/mocks/**",
-        "**/*.mock.{ts,tsx}",
-        "**/*.mocks.{ts,tsx}",
         "**/*.test-utils.{ts,tsx}",
 
         // Ignora arquivos e pastas do Storybook
-        "**/*.story.{ts,tsx}",
         "**/*.stories.{ts,tsx}",
-        "**/stories/**",
-        "**/__stories__/**",
       ],
     },
   },
