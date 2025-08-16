@@ -1,5 +1,5 @@
 import { setupWorker } from 'msw/browser';
-import { env } from '../../env/config';
+import { env } from '@/config/env/config';
 
 // passa os mocks dentro dessa função
 // Exemplo: setupWorker(SignInMock, CreateUserMock)
