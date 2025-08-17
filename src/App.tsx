@@ -1,5 +1,5 @@
-import { Router } from '@/routes/router';
+import { Navigation } from '@/routes/navigation';
 
 export const App = () => {
-  return <Router />;
+  return <Navigation />;
 };
