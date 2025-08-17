@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import type { SignFormSchema } from './SignIn-schema';
+import type { SignFormSchema } from './SignIn.schema';
 
 export const useSignInModel = () => {
   const {
