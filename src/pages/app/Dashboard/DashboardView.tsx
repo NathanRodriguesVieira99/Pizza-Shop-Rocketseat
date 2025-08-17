@@ -3,8 +3,9 @@ import type { useDashboardModel } from './DashboardModel';
 
 type DashboardViewProps = ReturnType<typeof useDashboardModel>;
 
-// biome-ignore lint/correctness/noEmptyPattern: I'll fix this soon
-export const DashboardView = ({}: DashboardViewProps) => {
+export const DashboardView = (props: DashboardViewProps) => {
+  // biome-ignore lint/correctness/noEmptyPattern:I'll fix this soon
+  const {} = props;
   return (
     <>
       <Helmet title="Dashboard" />
