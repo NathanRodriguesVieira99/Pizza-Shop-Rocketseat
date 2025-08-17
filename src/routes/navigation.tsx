@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { AppLayout } from '@/pages/_layouts/app';
 import { AuthLayout } from '@/pages/_layouts/auth';
-import { Dashboard } from '@/pages/app/Dashboard/DashboardView';
-import { SignInView } from '@/pages/auth/Sign-In/Sign-inView';
+import { DashboardPage } from '@/pages/app/Dashboard/DashboardPage';
+import { SignInPage } from '@/pages/auth/Sign-In/SignInPage';
 
 export const RoutesPath = {
   signIn: '/signIn',
@@ -13,11 +13,11 @@ export const Navigation = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route element={<Dashboard />} index />
+          <Route element={<DashboardPage />} index />
         </Route>
 
         <Route element={<AuthLayout />}>
-          <Route element={<SignInView />} path={RoutesPath.signIn} />
+          <Route element={<SignInPage />} path={RoutesPath.signIn} />
         </Route>
       </Routes>
     </BrowserRouter>
