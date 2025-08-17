@@ -3,6 +3,9 @@
   "extends": ["ultracite"],
   "linter": {
     "rules": {
+      "suspicious": {
+        "noConsole": "off"
+      },
       "style": {
         "useFilenamingConvention": "off"
       }
