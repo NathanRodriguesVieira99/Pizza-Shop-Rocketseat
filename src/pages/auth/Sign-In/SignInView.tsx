@@ -6,8 +6,9 @@ import type { useSignInModel } from './SignInModel';
 
 type SignInViewProps = ReturnType<typeof useSignInModel>;
 
-// biome-ignore lint/correctness/noEmptyPattern: I'll fix this soon
-export const SignInView = ({}: SignInViewProps) => {
+export const SignInView = (props: SignInViewProps) => {
+  const { register, handleSignIn, isSubmitting } = props;
+
   return (
     <>
       <Helmet title="Login" />
@@ -22,13 +23,13 @@ export const SignInView = ({}: SignInViewProps) => {
             </p>
           </div>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSignIn}>
             <div className="space-y-2">
               <Label htmlFor="email">Seu e-mail</Label>
-              <Input id="email" type="email" />
+              <Input id="email" type="email" {...register('email')} />
             </div>
 
-            <Button className="w-full" type="submit">
+            <Button className="w-full" disabled={isSubmitting} type="submit">
               Acessar painel
             </Button>
           </form>
