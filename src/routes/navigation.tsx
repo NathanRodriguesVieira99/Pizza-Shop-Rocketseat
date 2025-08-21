@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { AppLayout } from '@/pages/_layouts/app';
 import { AuthLayout } from '@/pages/_layouts/auth';
+import { NotFoundPage } from '@/pages/404';
 import { DashboardPage } from '@/pages/app/Dashboard/DashboardPage';
 import { OrdersPage } from '@/pages/app/Orders/OrdersPage';
 import { SignInPage } from '@/pages/auth/Sign-In/SignInPage';
@@ -10,6 +11,7 @@ export const RoutesPath = {
   signIn: '/signIn',
   signUp: '/signUp',
   Orders: '/orders',
+  NotFound: '*',
 } as const;
 
 export const Navigation = () => {
@@ -19,6 +21,7 @@ export const Navigation = () => {
         <Route element={<AppLayout />}>
           <Route element={<DashboardPage />} index />
           <Route element={<OrdersPage />} path={RoutesPath.Orders} />
+          <Route element={<NotFoundPage />} path={RoutesPath.NotFound} />
         </Route>
 
         <Route element={<AuthLayout />}>
