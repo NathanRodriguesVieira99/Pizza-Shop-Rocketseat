@@ -2,7 +2,7 @@ import { treeifyError, z } from 'zod';
 
 const envSchema = z.object({
   VITE_ENV: z.enum(['test', 'e2e', 'development', 'production']),
-  VITE_API_BASE_URL: z.url(),
+  VITE_API_BASE_URL: z.url().startsWith('http://localhost:'),
 });
 
 const _env = envSchema.safeParse(import.meta.env);
