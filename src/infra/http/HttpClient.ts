@@ -9,6 +9,10 @@ export class HttpClient implements IHttpClient {
   // biome-ignore lint/style/noParameterProperties: not necessary here
   private constructor(private api: AxiosInstance = axios) {}
 
+  static create() {
+    return new HttpClient();
+  }
+
   async request<TResponse, TBody>(props: HttpRequest<TBody>) {
     const { endpoint, method, body, headers } = props;
 
