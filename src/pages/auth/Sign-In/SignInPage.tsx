@@ -1,8 +1,12 @@
+import { HttpClient } from '@/infra/http/HttpClient';
+import { SignInService as ServiceSignIn } from '@/services/api/SignInService/SignInService';
 import { useSignInModel } from './SignInModel';
 import { SignInView } from './SignInView';
 
 export const SignInPage = () => {
-  const methods = useSignInModel();
+  const httpClient = HttpClient.create();
+  const SignInService = new ServiceSignIn(httpClient);
+  const methods = useSignInModel({ SignInService });
 
   return <SignInView {...methods} />;
 };
