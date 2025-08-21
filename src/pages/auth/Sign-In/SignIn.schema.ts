@@ -4,4 +4,4 @@ export const signInFormSchema = z.object({
   email: z.email(),
 });
 
-export type SignFormSchema = z.infer<typeof signInFormSchema>;
+export type SignInFormSchema = z.infer<typeof signInFormSchema>;
