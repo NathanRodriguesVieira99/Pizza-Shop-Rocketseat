@@ -1,17 +1,34 @@
+import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import type { SignFormSchema } from './SignIn.schema';
+import type {
+  ISignInService,
+  SignInBody,
+} from '@/services/api/SignInService/SignInService';
+import type { SignInFormSchema } from './SignIn.schema';
 
-export const useSignInModel = () => {
+type SignInModelProps = {
+  SignInService: ISignInService;
+};
+
+export const useSignInModel = ({ SignInService }: SignInModelProps) => {
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<SignFormSchema>();
+  } = useForm<SignInFormSchema>();
 
-  const onSubmit = async (data: SignFormSchema) => {
+  /**
+   *  useMutation -> POST , PUT , DELETE
+   *  useQuery -> GET
+   */
+  const { mutateAsync: authenticate } = useMutation({
+    mutationFn: (data: SignInBody) => SignInService.exec(data),
+  });
+
+  const onSubmit = async (data: SignInFormSchema) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await authenticate({ email: data.email });
 
       toast.success('Enviamos um link de autenticação para o seu e-mail', {
         action: {
