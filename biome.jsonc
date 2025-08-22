@@ -7,7 +7,8 @@
         "noConsole": "off"
       },
       "style": {
-        "useFilenamingConvention": "off"
+        "useFilenamingConvention": "off",
+        "noParameterProperties": "off"
       }
     }
   }
