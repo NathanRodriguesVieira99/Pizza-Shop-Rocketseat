@@ -1,22 +1,23 @@
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
+import { useSearchParams } from 'react-router';
 import { toast } from 'sonner';
-import type {
-  ISignInService,
-  SignInBody,
-} from '@/services/api/SignInService/SignInService';
+import type { SignInBody } from '@/services/api/SignInService/SignInService';
 import type { SignInFormSchema } from './SignIn.schema';
-
-type SignInModelProps = {
-  SignInService: ISignInService;
-};
+import type { SignInModelProps } from './SignIn.types';
 
 export const useSignInModel = ({ SignInService }: SignInModelProps) => {
+  const [searchParams] = useSearchParams();
+
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<SignInFormSchema>();
+  } = useForm<SignInFormSchema>({
+    defaultValues: {
+      email: searchParams.get('email') ?? '',
+    },
+  });
 
   /**
    *  useMutation -> POST , PUT , DELETE
