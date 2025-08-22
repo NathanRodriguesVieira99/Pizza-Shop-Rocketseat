@@ -1,9 +1,14 @@
+import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { toast } from 'sonner';
+import type { RegisterRestaurantBody } from '@/services/api/register-restaurant-service/register-restaurant-service';
 import type { SignUpFormSchema } from './SignUp.schema';
+import type { RegisterRestaurantProps } from './SignUp.types';
 
-export const useSignUpModel = () => {
+export const useSignUpModel = ({
+  RegisterRestaurantService,
+}: RegisterRestaurantProps) => {
   const navigate = useNavigate();
 
   const {
@@ -12,14 +17,24 @@ export const useSignUpModel = () => {
     formState: { isSubmitting },
   } = useForm<SignUpFormSchema>();
 
-  const onSubmit = async (_data: SignUpFormSchema) => {
+  const { mutateAsync: registerRestaurantFn } = useMutation({
+    mutationFn: (data: RegisterRestaurantBody) =>
+      RegisterRestaurantService.exec(data),
+  });
+
+  const onSubmit = async (data: SignUpFormSchema) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await registerRestaurantFn({
+        restaurantName: data.managerName,
+        managerName: data.managerName,
+        email: data.email,
+        phone: data.phone,
+      });
 
       toast.success('Restaurante cadastrado com sucesso!', {
         action: {
           label: 'Login',
-          onClick: () => navigate('/signIn'),
+          onClick: () => navigate(`/signIn?email=${data.email}`),
         },
       });
     } catch {
