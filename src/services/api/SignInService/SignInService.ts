@@ -9,7 +9,6 @@ export interface ISignInService {
 }
 
 export class SignInService implements ISignInService {
-  // biome-ignore lint/style/noParameterProperties: not necessary here
   constructor(private readonly httpClient: IHttpClient) {}
 
   async exec(body: SignInBody) {
