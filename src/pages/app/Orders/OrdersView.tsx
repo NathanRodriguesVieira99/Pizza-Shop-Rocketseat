@@ -14,6 +14,7 @@ import { OrderTableRow } from './_components/order-table-row';
 
 // type OrdersViewProps = ReturnType<typeof useOrdersModel>;
 
+// passar props quando necessário
 export const OrdersView = () => {
   // const {} = props;
   return (
