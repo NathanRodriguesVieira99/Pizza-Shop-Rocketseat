@@ -5,13 +5,13 @@ import { MonthOrdersAmountCard } from './_components/month-orders-amount-card';
 import { MonthRevenueCard } from './_components/month-revenue-card';
 import { PopularOrdersChart } from './_components/popular-orders-chart';
 import { RevenueChart } from './_components/revenue-chart';
-import type { useDashboardModel } from './DashboardModel';
+// import type { useDashboardModel } from './DashboardModel';
 
-type DashboardViewProps = ReturnType<typeof useDashboardModel>;
+// type DashboardViewProps = ReturnType<typeof useDashboardModel>;
 
-export const DashboardView = (props: DashboardViewProps) => {
-  // biome-ignore lint/correctness/noEmptyPattern:I'll fix this soon
-  const {} = props;
+// passar props quando necessário
+export const DashboardView = () => {
+  // const {} = props;
   return (
     <>
       <Helmet title="Dashboard" />
