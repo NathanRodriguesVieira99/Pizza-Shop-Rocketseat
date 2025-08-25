@@ -6,7 +6,6 @@ import type { HttpRequest, IHttpClient } from './HttpClientContract';
 const BASE_URL = env.VITE_API_BASE_URL;
 
 export class HttpClient implements IHttpClient {
-  // biome-ignore lint/style/noParameterProperties: not necessary here
   private constructor(private api: AxiosInstance = axios) {}
 
   static create() {
