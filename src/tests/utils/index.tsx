@@ -1,18 +1,10 @@
 import { render } from '@testing-library/react';
 import type { ReactNode } from 'react';
+import { AppProvider } from '@/context/app-provider';
 
 function Providers({ children }: { children: ReactNode }) {
   // providers vão em volta do children
-  // Exemplo:
-  /*
-  return (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      {children}
-    </AuthProvider>
-  </QueryClientProvider>);
-  */
-  return <>{children}</>;
+  return <AppProvider>{children}</AppProvider>;
 }
 
 function customRender(ui: React.ReactElement, options = {}) {

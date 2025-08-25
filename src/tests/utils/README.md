@@ -12,7 +12,7 @@ Exemplo de uso:
 
 ```ts
 // src/tests/components/MeuComponente.test.tsx
-import { render, userEvent, screen } from "@/tests/utils/test-utils";
+import { render, userEvent, screen } from "@/tests/utils";
 import MeuComponente from "../MeuComponente";
 
 describe("MeuComponente", () => {
