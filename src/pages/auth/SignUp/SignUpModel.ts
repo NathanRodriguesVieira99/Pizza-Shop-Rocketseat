@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { toast } from 'sonner';
-import type { RegisterRestaurantBody } from '@/services/api/register-restaurant-service/register-restaurant-service';
+import type { RegisterRestaurantBody } from '@/services/api/register-restaurant-service';
 import type { SignUpFormSchema } from './SignUp.schema';
 import type { RegisterRestaurantProps } from './SignUp.types';
 

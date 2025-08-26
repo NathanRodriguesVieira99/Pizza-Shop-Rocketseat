@@ -1,4 +1,4 @@
-import type { ISignInService } from '@/services/api/SignInService/SignInService';
+import type { ISignInService } from '@/services/api/SignInService';
 
 export type SignInModelProps = {
   SignInService: ISignInService;
