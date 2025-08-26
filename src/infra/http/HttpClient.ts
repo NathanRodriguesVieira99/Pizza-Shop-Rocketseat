@@ -5,6 +5,14 @@ import type { HttpRequest, IHttpClient } from './HttpClientContract';
 
 const BASE_URL = env.VITE_API_BASE_URL;
 
+// delay nas requisições da API para fins de teste
+if (env.VITE_ENV === 'development' && env.VITE_ENABLE_API_DELAY) {
+  axios.interceptors.request.use(async (config) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    return config;
+  });
+}
+
 export class HttpClient implements IHttpClient {
   private constructor(private api: AxiosInstance = axios) {}
 
@@ -21,6 +29,7 @@ export class HttpClient implements IHttpClient {
         method,
         headers,
         data: body,
+        withCredentials: true,
       });
 
       return data;
