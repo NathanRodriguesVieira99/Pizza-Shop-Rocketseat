@@ -10,13 +10,8 @@ import {
 } from '@/components/ui/table';
 import { OrderTableFilter } from './_components/order-table-filter';
 import { OrderTableRow } from './_components/order-table-row';
-// import type { useOrdersModel } from './OrdersModel';
 
-// type OrdersViewProps = ReturnType<typeof useOrdersModel>;
-
-// passar props quando necessário
 export const OrdersView = () => {
-  // const {} = props;
   return (
     <>
       <Helmet title="Pedidos" />
