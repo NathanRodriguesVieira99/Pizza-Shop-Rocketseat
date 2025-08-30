@@ -18,17 +18,20 @@ import {
 import { OrderStatus } from '../order-status';
 import { useOrderDetailsModel } from './order-details.model';
 import type { OrderDetailsProps } from './order-details.types';
+import { OrderDetailsSkeleton } from './order-details-skeleton';
 
 export const OrderDetails = ({ orderId, open }: OrderDetailsProps) => {
   const { order } = useOrderDetailsModel({ orderId, open });
-
+  /**
+   * !! ACHO QUE O SKELETON NÃO ESTÁ FUNCIONANDO, IREI TESTAR E CORRIGIR
+   */
   return (
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Pedido: {orderId}</DialogTitle>
         <DialogDescription>Detalhes do pedido</DialogDescription>
       </DialogHeader>
-      {order && (
+      {order ? (
         <div className="space-y-6">
           <Table>
             <TableBody>
@@ -90,7 +93,7 @@ export const OrderDetails = ({ orderId, open }: OrderDetailsProps) => {
               {order.orderItems.map((item) => {
                 return (
                   <TableRow key={item.id}>
-                    <TableCell>{item.productName}</TableCell> {/* FIX */}
+                    <TableCell>{item.productName}</TableCell>
                     <TableCell className="text-right">
                       {item.quantity}
                     </TableCell>
@@ -130,6 +133,8 @@ export const OrderDetails = ({ orderId, open }: OrderDetailsProps) => {
             </TableFooter>
           </Table>
         </div>
+      ) : (
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
   );
