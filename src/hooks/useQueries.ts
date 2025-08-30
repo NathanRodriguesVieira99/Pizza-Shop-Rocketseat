@@ -1,12 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { HttpClient } from '@/infra/http/HttpClient';
 import { GetManagedRestaurant } from '@/services/api/get-managed-restaurant';
+
 import { GetProfile } from '@/services/api/get-profile';
 
 const httpClient = HttpClient.create();
 const getProfileService = new GetProfile(httpClient);
 const getManagedRestaurantService = new GetManagedRestaurant(httpClient);
-
+/**
+ * ?? TALVEZ REFATORAR/EXCLUIR ESSE HOOK
+ */
 export const useQueries = () => {
   /**
    *  useQuery -> GET
@@ -23,6 +26,7 @@ export const useQueries = () => {
       queryFn: () => getManagedRestaurantService.exec(),
       staleTime: Number.POSITIVE_INFINITY,
     });
+
   return {
     profile,
     isloadingProfile,
