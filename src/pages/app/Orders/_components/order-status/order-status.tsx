@@ -1,7 +1,7 @@
 import type {
   OrderStatusProps,
   OrderStatus as StatusOrder,
-} from '../orders-types';
+} from '../../orders-types';
 
 export const OrderStatus = ({ status }: OrderStatusProps) => {
   const orderStatusMap: Record<StatusOrder, string> = {
