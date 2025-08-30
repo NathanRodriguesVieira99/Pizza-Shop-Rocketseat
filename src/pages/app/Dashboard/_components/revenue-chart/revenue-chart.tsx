@@ -1,3 +1,4 @@
+import { Loader2 } from 'lucide-react';
 import {
   CartesianGrid,
   Line,
@@ -35,7 +36,7 @@ export const RevenueChart = () => {
         </div>
       </CardHeader>
       <CardContent>
-        {chartData && (
+        {chartData ? (
           <ResponsiveContainer height={240} width="100%">
             <LineChart data={chartData} style={{ fontsize: 12 }}>
               <XAxis axisLine={false} dataKey="date" dy={16} tickLine={false} />
@@ -60,6 +61,10 @@ export const RevenueChart = () => {
               />
             </LineChart>
           </ResponsiveContainer>
+        ) : (
+          <div className=" flex h-[240px] w-full items-center justify-center">
+            <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+          </div>
         )}
       </CardContent>
     </Card>
