@@ -1,10 +1,5 @@
-/** biome-ignore-all lint/performance/noNamespaceImport: mandatory by react testing library */
-import { cleanup } from "@testing-library/react";
-import { afterEach, expect, vi } from "vitest";
-import "@testing-library/jest-dom/vitest";
-import * as matchers from "@testing-library/jest-dom/matchers";
-
-expect.extend(matchers);
+import { cleanup } from '@testing-library/react';
+import { afterEach, vi } from 'vitest';
 
 // Essa função roda automaticamente depois de cada teste
 // Serve pra limpar tudo e evitar que um teste interfira no outro

@@ -1,6 +1,10 @@
 import { render } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { AppProvider } from '@/context/app-provider';
+import '@testing-library/jest-dom/vitest';
+import * as matchers from '@testing-library/jest-dom/matchers';
+
+expect.extend(matchers);
 
 function Providers({ children }: { children: ReactNode }) {
   // providers vão em volta do children
