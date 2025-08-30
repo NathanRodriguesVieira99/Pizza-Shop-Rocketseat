@@ -1,15 +1,17 @@
 import { Helmet } from 'react-helmet-async';
-import { DayOrdersAmountCard } from './_components/day-orders-amount-card';
-import { MonthCanceledOrdersAmountCard } from './_components/month-canceled-orders-amount-card';
-import { MonthOrdersAmountCard } from './_components/month-orders-amount-card';
-import { MonthRevenueCard } from './_components/month-revenue-card';
-import { PopularOrdersChart } from './_components/popular-orders-chart';
-import { RevenueChart } from './_components/revenue-chart';
+import { DayOrdersAmountCard } from './_components/day-orders-amount-card/day-orders-amount-card';
+import { MonthCanceledOrdersAmountCard } from './_components/month-canceled-orders-amount-card/month-canceled-orders-amount-card';
+import { MonthOrdersAmountCard } from './_components/month-orders-amount-card/month-orders-amount-card';
+import { MonthRevenueCard } from './_components/month-revenue-card/month-revenue-card';
+import { PopularOrdersChart } from './_components/popular-orders-chart/popular-orders-chart';
+import { RevenueChart } from './_components/revenue-chart/revenue-chart';
 // import type { useDashboardModel } from './DashboardModel';
 
 // type DashboardViewProps = ReturnType<typeof useDashboardModel>;
 
-// passar props quando necessário
+/**
+ props: DashboardViewProps
+ */
 export const DashboardView = () => {
   // const {} = props;
   return (
