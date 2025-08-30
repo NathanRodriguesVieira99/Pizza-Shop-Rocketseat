@@ -9,7 +9,8 @@
       "style": {
         "useFilenamingConvention": "off",
         "noParameterProperties": "off"
-      }
+      },
+      "performance": { "noNamespaceImport": "off" }
     }
   }
 }
