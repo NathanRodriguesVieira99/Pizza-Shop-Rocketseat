@@ -10,12 +10,13 @@ import {
 } from '@/components/ui/table';
 import { OrderTableFilter } from './_components/order-table-filter/order-table-filter';
 import { OrderTableRow } from './_components/order-table-row/order-table-row';
+import { OrderTableSkeleton } from './_components/order-table-skeleton/order-table-skeleton';
 import type { useOrdersModel } from './OrdersModel';
 
 type OrdersViewProps = ReturnType<typeof useOrdersModel>;
 
 export const OrdersView = (props: OrdersViewProps) => {
-  const { result, handlePaginate } = props;
+  const { result, handlePaginate, isLoadingOrders } = props;
   return (
     <>
       <Helmet title="Pedidos" />
@@ -40,6 +41,8 @@ export const OrdersView = (props: OrdersViewProps) => {
               </TableHeader>
 
               <TableBody>
+                {isLoadingOrders && <OrderTableSkeleton />}
+
                 {result?.orders.map((order) => {
                   return <OrderTableRow key={order.orderId} order={order} />;
                 })}

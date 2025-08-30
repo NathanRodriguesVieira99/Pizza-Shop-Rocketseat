@@ -15,7 +15,7 @@ export const useOrdersModel = ({ GetOrdersService }: OrdersModelProps) => {
     .transform((page) => page - 1)
     .parse(searchParams.get('page') ?? '1');
 
-  const { data: result } = useQuery({
+  const { data: result, isLoading: isLoadingOrders } = useQuery({
     queryKey: ['orders', pageIndex, orderId, customerName, status],
     queryFn: () =>
       GetOrdersService.exec({
@@ -35,5 +35,5 @@ export const useOrdersModel = ({ GetOrdersService }: OrdersModelProps) => {
     });
   };
 
-  return { result, handlePaginate };
+  return { result, handlePaginate, isLoadingOrders };
 };
