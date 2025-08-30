@@ -8,7 +8,9 @@ const BASE_URL = env.VITE_API_BASE_URL;
 // delay nas requisições da API para fins de teste
 if (env.VITE_ENV === 'development' && env.VITE_ENABLE_API_DELAY) {
   axios.interceptors.request.use(async (config) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) =>
+      setTimeout(resolve, Math.round(Math.random() * 3000))
+    );
     return config;
   });
 }
