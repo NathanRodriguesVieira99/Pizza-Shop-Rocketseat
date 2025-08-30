@@ -6,24 +6,4 @@ Importe `render` e `userEvent` daqui para garantir consistência e boas prática
 
 Arquivos comuns:
 
-- `test-utils.tsx`: Exporta o render customizado, já incluindo providers globais, além de helpers como `userEvent` para simular interações.
-
-Exemplo de uso:
-
-```ts
-// src/tests/components/MeuComponente.test.tsx
-import { render, userEvent, screen } from "@/tests/utils";
-import MeuComponente from "../MeuComponente";
-
-describe("MeuComponente", () => {
-  it("deve renderizar com providers e interagir", () => {
-    render(<MeuComponente />);
-    // O componente já tem acesso a providers como React Query, AuthContext, etc.
-    userEvent.click(screen.getByText("Botão"));
-    expect(screen.getByText("Sucesso!"))
-      .toBeInTheDocument();
-  });
-});
-```
-
-> **Dica:** Se precisar adicionar novos providers (ex: ThemeProvider), basta ajustar a função Providers em `test-utils.tsx` para que todos os testes passem a ter acesso automaticamente.
+- `index.tsx`: Exporta o render customizado, já incluindo providers globais, além de helpers como `userEvent` para simular interações.
