@@ -12,6 +12,7 @@ export type HttpRequest<TBody> = {
   method: HttpMethod;
   body?: TBody;
   headers?: Record<string, string>;
+  params?: Record<string, unknown>;
 };
 
 export interface IHttpClient {

@@ -16,12 +16,18 @@ if (env.VITE_ENV === 'development' && env.VITE_ENABLE_API_DELAY) {
 export class HttpClient implements IHttpClient {
   private constructor(private api: AxiosInstance = axios) {}
 
+  // facilita a injeção em outros arquivos
   static create() {
     return new HttpClient();
   }
 
+  // instância do axios
+  get Instance() {
+    return this.api;
+  }
+
   async request<TResponse, TBody>(props: HttpRequest<TBody>) {
-    const { endpoint, method, body, headers } = props;
+    const { endpoint, method, body, headers, params } = props;
 
     try {
       const { data } = await this.api.request<TResponse>({
@@ -29,6 +35,7 @@ export class HttpClient implements IHttpClient {
         method,
         headers,
         data: body,
+        params,
         withCredentials: true,
       });
 
