@@ -1,34 +1,43 @@
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { createBrowserRouter, RouterProvider } from 'react-router';
 import { AppLayout } from '@/pages/_layouts/app';
 import { AuthLayout } from '@/pages/_layouts/auth';
-import { NotFoundPage } from '@/pages/404';
 import { DashboardPage } from '@/pages/app/Dashboard/DashboardPage';
 import { OrdersPage } from '@/pages/app/Orders/OrdersPage';
 import { SignInPage } from '@/pages/auth/Sign-In/SignInPage';
 import { SignUpPage } from '@/pages/auth/SignUp/SignUpPage';
+import { ErrorPage } from '@/pages/error/error';
 
 export const RoutesPath = {
   signIn: '/signIn',
   signUp: '/signUp',
   Orders: '/orders',
-  NotFound: '*',
+  Error: '*',
 } as const;
 
-export const Navigation = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route element={<DashboardPage />} index />
-          <Route element={<OrdersPage />} path={RoutesPath.Orders} />
-          <Route element={<NotFoundPage />} path={RoutesPath.NotFound} />
-        </Route>
+export const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <DashboardPage /> },
+      {
+        path: RoutesPath.Orders,
+        element: <OrdersPage />,
+      },
+    ],
+  },
+  {
+    element: <AuthLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: RoutesPath.signIn, element: <SignInPage /> },
+      {
+        path: RoutesPath.signUp,
+        element: <SignUpPage />,
+      },
+    ],
+  },
+  { path: RoutesPath.Error, element: <ErrorPage /> },
+]);
 
-        <Route element={<AuthLayout />}>
-          <Route element={<SignInPage />} path={RoutesPath.signIn} />
-          <Route element={<SignUpPage />} path={RoutesPath.signUp} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-};
+export const Navigation = () => <RouterProvider router={router} />;
