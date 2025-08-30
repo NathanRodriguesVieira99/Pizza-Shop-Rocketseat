@@ -12,8 +12,10 @@ import { useQueries } from '@/hooks/useQueries';
 import { Button } from '../../ui/button';
 import { DropdownMenu } from '../../ui/dropdown-menu';
 import { AccountProfileDialog } from '../account-profile-dialog';
+import { useAccountMenuModel } from './account-menu-model';
 
 export const AccountMenu = () => {
+  const { SignOutFn, isSigningOut } = useAccountMenuModel();
   const {
     managedRestaurant,
     isLoadingManagedRestaurant,
@@ -64,9 +66,19 @@ export const AccountMenu = () => {
             </DropdownMenuItem>
           </DialogTrigger>
 
-          <DropdownMenuItem className="text-rose-500 dark:text-rose-400">
-            <LogOut className="mr-2 h-4 w-4" />
-            <span>Sair</span>
+          <DropdownMenuItem
+            asChild
+            className="text-rose-500 dark:text-rose-400"
+            disabled={isSigningOut}
+          >
+            <button
+              className="w-full"
+              onClick={() => SignOutFn()}
+              type="button"
+            >
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Sair</span>
+            </button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
