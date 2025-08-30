@@ -8,10 +8,14 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { OrderTableFilter } from './_components/order-table-filter';
-import { OrderTableRow } from './_components/order-table-row';
+import { OrderTableFilter } from './_components/order-table-filter/order-table-filter';
+import { OrderTableRow } from './_components/order-table-row/order-table-row';
+import type { useOrdersModel } from './OrdersModel';
 
-export const OrdersView = () => {
+type OrdersViewProps = ReturnType<typeof useOrdersModel>;
+
+export const OrdersView = (props: OrdersViewProps) => {
+  const { result, handlePaginate } = props;
   return (
     <>
       <Helmet title="Pedidos" />
@@ -36,13 +40,20 @@ export const OrdersView = () => {
               </TableHeader>
 
               <TableBody>
-                {Array.from({ length: 10 }).map((_, i) => {
-                  return <OrderTableRow key={i} />;
+                {result?.orders.map((order) => {
+                  return <OrderTableRow key={order.orderId} order={order} />;
                 })}
               </TableBody>
             </Table>
           </div>
-          <Pagination pageIndex={0} perPage={10} totalCount={105} />
+          {result && (
+            <Pagination
+              onPageChange={handlePaginate}
+              pageIndex={result.meta.pageIndex}
+              perPage={result.meta.perPage}
+              totalCount={result.meta.totalCount}
+            />
+          )}
         </div>
       </div>
     </>
