@@ -6,7 +6,7 @@ import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { TableCell, TableRow } from '@/components/ui/table';
 import type { OrderTableRowProps } from '../../orders-types';
 import { OrderDetails } from '../order-details/order-details';
-import { OrderStatus } from '../order-status';
+import { OrderStatus } from '../order-status/order-status';
 import { useOrderTableRowModel } from './order-table-row.model';
 
 export const OrderTableRow = ({ order }: OrderTableRowProps) => {

@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { OrderStatus } from '../order-status';
+import { OrderStatus } from '../order-status/order-status';
 import { useOrderDetailsModel } from './order-details.model';
 import type { OrderDetailsProps } from './order-details.types';
 import { OrderDetailsSkeleton } from './order-details-skeleton';
