@@ -2,7 +2,7 @@ import { treeifyError, z } from 'zod';
 
 const envSchema = z.object({
   VITE_ENV: z
-    .enum(['test', 'e2e', 'development', 'production'])
+    .enum(['test', 'development', 'production'])
     .default('development'),
   VITE_API_BASE_URL: z.string(),
   VITE_ENABLE_API_DELAY: z.string().transform((value) => value === 'true'),
