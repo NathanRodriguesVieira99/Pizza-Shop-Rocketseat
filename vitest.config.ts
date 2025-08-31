@@ -12,6 +12,7 @@ export default defineConfig({
     fileParallelism: false,
     setupFiles: ['vitest.setup.ts'],
     globalSetup: ['vitest.global.setup.ts'],
+    // Testes de integração: .spec.ts(x) | Testes unitários : .test.ts(x)
     include: ['src/**/*.{spec,test}.{ts,tsx}'],
     testTimeout: 10_000,
     coverage: {
