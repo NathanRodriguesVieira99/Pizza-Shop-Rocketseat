@@ -1,5 +1,5 @@
 import { HttpClient } from '@/infra/http/HttpClient';
-import { SignInService as ServiceSignIn } from '@/services/api/SignInService';
+import { SignInService as ServiceSignIn } from '@/services/api/sign-in';
 import { useSignInModel } from './SignInModel';
 import { SignInView } from './SignInView';
 

@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'react-router';
 import { toast } from 'sonner';
-import type { SignInBody } from '@/services/api/SignInService';
+import type { SignInBody } from '@/services/api/sign-in';
 import type { SignInFormSchema } from './SignIn.schema';
 import type { SignInModelProps } from './SignIn.types';
 
