@@ -3,7 +3,7 @@ import { HttpMethod, type IHttpClient } from '@/infra/http/HttpClientContract';
 /**
  *  tipagem dos dados que serão enviados na requisição HTTP
  */
-export interface RegisterRestaurantBody {
+export interface RegisterRestaurantRequest {
   restaurantName: string;
   managerName: string;
   email: string;
@@ -14,7 +14,7 @@ export interface RegisterRestaurantBody {
  *  interface do serviço que garante que o método exec receba o dados e retorne uma Promise
  */
 export interface IRegisterRestaurantService {
-  exec: (data: RegisterRestaurantBody) => Promise<void>;
+  exec: (data: RegisterRestaurantRequest) => Promise<void>;
 }
 
 /**
@@ -26,7 +26,7 @@ export class RegisterRestaurantService implements IRegisterRestaurantService {
   /**
    * passar props quando necessário
    */
-  async exec(body: RegisterRestaurantBody) {
+  async exec(body: RegisterRestaurantRequest) {
     const responseRegisterRestaurantService =
       await this.httpClient.request<void>({
         method: HttpMethod.POST,
