@@ -9,6 +9,8 @@ test('sign in successfully', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Acessar painel' }).click();
 
+  await page.waitForTimeout(250);
+
   const toast = page.getByText(
     'Enviamos um link de autenticação para o seu e-mail'
   );
@@ -16,7 +18,7 @@ test('sign in successfully', async ({ page }) => {
   expect(toast).toBeVisible();
 });
 
-test('sign with wrong credentials', async ({ page }) => {
+test('sign in with wrong credentials', async ({ page }) => {
   await page.goto('/sign-in', { waitUntil: 'networkidle' });
 
   await page
@@ -24,6 +26,8 @@ test('sign with wrong credentials', async ({ page }) => {
     .fill('janedoe@example.com');
 
   await page.getByRole('button', { name: 'Acessar painel' }).click();
+
+  await page.waitForTimeout(250);
 
   const toast = page.getByText('Credenciais inválidas');
 
