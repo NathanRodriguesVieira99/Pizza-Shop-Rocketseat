@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { toast } from 'sonner';
-import type { RegisterRestaurantBody } from '@/services/api/register-restaurant-service';
+import type { RegisterRestaurantRequest } from '@/services/api/register-restaurant-service';
 import type { SignUpFormSchema } from './SignUp.schema';
 import type { RegisterRestaurantProps } from './SignUp.types';
 
@@ -24,7 +24,7 @@ export const useSignUpModel = ({
    *  cria uma Mutation do React-Query que chama o método exec do serviço para cadastrar um restaurante
    */
   const { mutateAsync: registerRestaurantFn } = useMutation({
-    mutationFn: (data: RegisterRestaurantBody) =>
+    mutationFn: (data: RegisterRestaurantRequest) =>
       RegisterRestaurantService.exec(data),
   });
 
@@ -34,7 +34,7 @@ export const useSignUpModel = ({
   const onSubmit = async (data: SignUpFormSchema) => {
     try {
       await registerRestaurantFn({
-        restaurantName: data.managerName,
+        restaurantName: data.restaurantName,
         managerName: data.managerName,
         email: data.email,
         phone: data.phone,
