@@ -16,7 +16,7 @@ export const SignUpView = (props: SignUpViewProps) => {
       <Helmet title="Cadastro" />
       <div className="p-8">
         <Button asChild className="absolute top-8 right-8" variant={'ghost'}>
-          <Link to="/signIn">Fazer login</Link>
+          <Link to="/sign-in">Fazer login</Link>
         </Button>
 
         <div className="flex w-[350px] flex-col justify-center gap-6">

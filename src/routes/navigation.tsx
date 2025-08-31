@@ -8,8 +8,8 @@ import { SignUpPage } from '@/pages/auth/SignUp/SignUpPage';
 import { ErrorPage } from '@/pages/error/error';
 
 export const RoutesPath = {
-  signIn: '/signIn',
-  signUp: '/signUp',
+  signIn: '/sign-in',
+  signUp: '/sign-up',
   Orders: '/orders',
   Error: '*',
 } as const;
