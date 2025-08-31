@@ -14,11 +14,8 @@ test('sign up successfully', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Finalizar cadastro' }).click();
 
-  await page.waitForTimeout(250);
-
   const toast = page.getByText('Restaurante cadastrado com sucesso!');
-
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
 });
 
 test('sign up with wrong credentials', async ({ page }) => {
@@ -35,11 +32,11 @@ test('sign up with wrong credentials', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Finalizar cadastro' }).click();
 
-  await page.waitForTimeout(250);
-
   const toast = page.getByText('Erro ao cadastrar restaurante.');
-
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
+  await expect(page.locator('body')).toContainText(
+    'Erro ao cadastrar restaurante.'
+  );
 });
 
 test('navigate to login page', async ({ page }) => {
